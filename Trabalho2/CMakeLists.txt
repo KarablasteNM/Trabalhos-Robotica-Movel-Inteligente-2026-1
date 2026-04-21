@@ -1,3 +1,6 @@
+# Trabalho 2 - Robotica Movel Inteligente (2026/1) - Renan Q. Maffei
+# Nathan Mattes - 00342941 & Rafeal Trevisan Lisboa - 00
+
 cmake_minimum_required(VERSION 3.8)
 project(phi_p3dx_planning)
 
@@ -35,6 +38,38 @@ ament_target_dependencies(planning_example_cpp
   tf2
   tf2_geometry_msgs
   visualization_msgs
+)
+
+add_executable(RTT_Restrito src/RTT_Restrito.cpp src/planning_node.cpp)
+ament_target_dependencies(RTT_Restrito
+  rclcpp
+  std_msgs
+  geometry_msgs
+  sensor_msgs
+  nav_msgs
+  tf2
+  tf2_geometry_msgs
+  visualization_msgs
+)
+
+add_executable(RTT_Simples src/RTT_Simples.cpp src/planning_node.cpp)
+ament_target_dependencies(RTT_Simples
+  rclcpp
+  std_msgs
+  geometry_msgs
+  sensor_msgs
+  nav_msgs
+  tf2
+  tf2_geometry_msgs
+  visualization_msgs
+)
+
+install(TARGETS RTT_Simples
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(TARGETS RTT_Restrito
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 install(TARGETS planning_example_cpp

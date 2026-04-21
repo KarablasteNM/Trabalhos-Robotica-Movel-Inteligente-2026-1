@@ -1,3 +1,6 @@
+// Trabalho 2 - Robotica Movel Inteligente (2026/1) - Renan Q. Maffei
+// Nathan Mattes - 00342941 & Rafeal Trevisan Lisboa - 00
+
 #include "planning_node.hpp"
 #include <visualization_msgs/msg/marker_array.hpp>
 #include <cmath>
@@ -13,10 +16,10 @@
  * - ANGLE_THRESHOLD: Ângulo para considerar alinhado.
  * - OBSTACLE_THRESHOLD: Distância para detectar obstáculo.
  */
-class PlanningExample : public PlanningNode
+class RTTRestrito : public PlanningNode
 {
 public:
-  PlanningExample() : PlanningNode("planning_example_cpp") {
+  RTTRestrito() : PlanningNode("RTT_Restrito") {
   }
 
 private:
@@ -196,7 +199,7 @@ private:
 int main(int argc, char *argv[])
 {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<PlanningExample>());
+  rclcpp::spin(std::make_shared<RTTRestrito>());
   rclcpp::shutdown();
   return 0;
 }
